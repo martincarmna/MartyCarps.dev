@@ -25,3 +25,16 @@
 .animate-infinite-scroll:hover {
   animation-play-state: paused;
 }
+/* Esto bloquea el desbordamiento lateral en toda la web */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden; /* Esto elimina la barra horizontal */
+  position: relative;
+}
+
+/* Opcional: Si usas un contenedor principal como #app (en Vue) */
+#app {
+  overflow-x: hidden;
+  width: 100%;
+}
