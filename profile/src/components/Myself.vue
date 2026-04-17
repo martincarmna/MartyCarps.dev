@@ -9,26 +9,28 @@ const texts = {
   ES: {
     pokedexEntry: 'Entrada Pokédex: No. 001 - Marty',
     title: 'INFO DESARROLLADOR',
-    role: 'Desarrolador de Software Multiplataforma Front-end / Full-stack',
-    description: `¡Qué tal! Soy alguien que cree firmemente en dejar un sello personal en cada proyecto que toco. Para mí, programar no es solo escribir líneas de código; es una extensión de mi proceso creativo.
+    role: 'Desarrolador de Software Multiplataforma Full-stack',
+    description: `Soy un desarrollador de software multiplataforma con un fuerte interés en crear soluciones completas y bien estructuradas. Considero la programación no solo como una disciplina técnica, sino como un proceso que combina lógica, creatividad y atención al detalle.
 
-Soy un apasionado total del arte y la música. Cuando no estoy frente al monitor, probablemente me encuentres con una guitarra en las manos, dibujando algo nuevo o editando tutoriales para compartir lo que sé con los demás. Siento que esa chispa artística es, precisamente, lo que alimenta mi visión como desarrollador.
+Cuento con experiencia en el desarrollo full-stack, participando tanto en la construcción de interfaces como en la implementación de la lógica de negocio y la gestión de datos. Esto me permite abordar proyectos de manera integral, asegurando que cada componente funcione de forma eficiente dentro del sistema.
 
-En el mundo tecnológico, mi enfoque principal es el Frontend. Me fascina ese momento mágico donde lo visual cobra vida y la interfaz se vuelve una experiencia real para el usuario. Sin embargo, no me quedo solo en la superficie: mantengo un dominio sólido del Backend, lo que me permite construir estructuras robustas que soporten toda esa creatividad visual.
+Me interesa trabajar en entornos donde pueda desarrollar aplicaciones multiplataforma, integrando distintas tecnologías para ofrecer soluciones funcionales, escalables y mantenibles.
 
-Básicamente, soy un desarrollador que disfruta fusionar la técnica con la estética para crear algo único.`,
+Además, mantengo un interés constante por el aprendizaje y la mejora continua, lo que me permite adaptarme a nuevas herramientas, metodologías y retos dentro del desarrollo de software.`,
     statsTitle: 'Habilidades Base',
     toolsTitle: 'Herramientas de Combate'
   },
   EN: {
     pokedexEntry: 'Pokédex Entry: No. 001 - Marty',
     title: 'DEVELOPER INFO',
-    role: 'Class: Front-end / Full-stack',
-    description: `I truly enjoy leaving my personal stamp on everything I do. For me, coding is more than just logic—it’s an extension of my creative process.
+    role: 'Full-Stack Multiplatform Software Developer',
+    description: `I am a multiplatform software developer with a strong interest in building complete and well-structured solutions. I view programming not only as a technical discipline, but as a process that combines logic, creativity, and attention to detail.
 
-I am deeply passionate about art and music; whether I’m playing the guitar, sketching, or sharing tutorials, I’m always looking for ways to express myself. This creative spark is exactly what drives my focus toward Frontend development, where I love seeing the visual aspects of a project come to life.
+I have experience in full-stack development, contributing to both interface design and the implementation of business logic and data management. This allows me to approach projects holistically, ensuring that each component operates efficiently within the system.
 
-However, I don't just stay on the surface—I maintain a solid mastery of the Backend, ensuring that every beautiful interface is supported by a robust and efficient structure. I bridge the gap between aesthetics and functionality to create digital experiences that truly resonate.`,
+I am interested in working in environments where I can develop multiplatform applications, integrating different technologies to deliver functional, scalable, and maintainable solutions.
+
+Additionally, I maintain a strong commitment to continuous learning and improvement, which enables me to adapt to new tools, methodologies, and challenges within software development.`,
     statsTitle: 'Base Stats',
     toolsTitle: 'Combat Tools'
   }

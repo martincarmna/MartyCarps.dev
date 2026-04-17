@@ -32,7 +32,7 @@ const handleClick = () => {
 
   setTimeout(() => {
     isCapturing.value = false;
-    const phone = '522411612654';
+    const phone = '522411404817';
     const message = encodeURIComponent('¡Hola! Me gustaría recibir más información.');
     window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
   }, 800);

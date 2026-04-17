@@ -13,8 +13,8 @@ const texts = {
 // Función para descargar el PDF
 const downloadCV = () => {
   const link = document.createElement('a');
-  link.href = '/MartyCarps_CV.pdf'; // Asegúrate de que el archivo esté en la carpeta /public
-  link.download = 'MartyCarps_CV.pdf';
+  link.href = '/JoseMartin_DesarrolladorFullStack.pdf'; // Asegúrate de que el archivo esté en la carpeta /public
+  link.download = 'JoseMartin_DesarrolladorFullStack.pdf';
   link.click();
 };
 </script>
