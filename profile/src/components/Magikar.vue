@@ -13,7 +13,7 @@ const texts = {
 // Función para descargar el PDF
 const downloadCV = () => {
   const link = document.createElement('a');
-  link.href = '/JoseMartin_DesarrolladorFullStack.pdf'; // Asegúrate de que el archivo esté en la carpeta /public
+  link.href = '/JoseMartin_DesarrolladorFullStack.pdf'; 
   link.download = 'JoseMartin_DesarrolladorFullStack.pdf';
   link.click();
 };
@@ -21,37 +21,52 @@ const downloadCV = () => {
 
 <template>
   <main>
-    <section
-      class="bg-[url('/Bs1G.gif')] bg-cover bg-center bg-no-repeat h-screen w-full relative overflow-hidden flex flex-col items-center md:items-start p-6 md:p-16"
-    >
-      <div class="absolute inset-0 bg-black/20 hover:bg-black/10 transition-colors duration-500 z-0"></div>
+    <section class="h-[420px] md:h-[500px] w-full relative overflow-hidden flex items-center p-6 md:p-16 bg-slate-950">
+      
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(30,58,138,0.2),transparent)] z-0"></div>
+      
+      <div class="absolute inset-0 bg-black/40 z-0"></div>
 
-      <img 
-        src="/Pokemon-Logo.png" 
-        alt="logo pok" 
-        class="z-30 w-64 md:w-[450px] h-auto object-contain relative md:translate-x-0"
+      <img
+        src="/red.png"
+        alt="red"
+        class="z-10 w-48 md:w-80 absolute bottom-0 right-4 md:left-[20%] md:right-auto opacity-90 drop-shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all duration-500 hover:scale-105"
       >
 
-      <img 
-        src="/red.png" 
-        alt="red" 
-        class="z-20 w-48 md:w-auto absolute bottom-0 md:bottom-auto md:top-1/2 left-1/2 md:left-1/3 transform -translate-x-1/2 md:-translate-y-1/2 md:translate-x-0 transition-all duration-500"
-      >
+      <div class="relative z-20 flex flex-col items-start gap-4 max-w-[60%] md:max-w-none md:ml-auto md:items-end md:text-right">
+        
+        <p class="text-blue-400 text-xs uppercase tracking-[0.3em] font-bold">
+          {{ currentLang === 'ES' ? 'Currículum Vitae' : 'Resume' }}
+        </p>
 
-      <div class="absolute bottom-10 md:bottom-auto md:top-1/2 md:right-10 lg:right-20 z-40 transform md:-translate-y-1/2 w-full px-6 md:px-0 md:w-auto">
-        <button 
+        <h2 class="text-white text-4xl md:text-7xl font-black uppercase italic tracking-tighter leading-none">
+          Jose Martin<br>
+          <span class="text-slate-400">Carmona Palestina</span>
+        </h2>
+
+        <button
           @click="downloadCV"
-          class="bg-[#FF0000] w-full md:w-72 lg:w-96 h-24 md:h-32 flex flex-col md:flex-row items-center justify-center gap-2 border-4 border-white shadow-[8px_8px_0px_0px_rgba(0,0,0,0.5)] active:translate-y-1 active:shadow-none transition-all group"
+          class="flex items-center gap-2 bg-white text-black font-black uppercase tracking-widest text-[10px] md:text-xs px-6 md:px-10 py-3 md:py-4 hover:bg-blue-500 hover:text-white active:scale-95 transition-all shadow-[6px_6px_0px_0px_rgba(30,58,138,1)]"
         >
-          <span class="material-symbols-outlined text-white text-4xl group-hover:animate-bounce">
-            download
-          </span>
-          <h3 class="text-white text-2xl md:text-xl lg:text-3xl font-black uppercase tracking-tighter">
-            {{ texts[currentLang].download }}
-          </h3>
+          <span class="material-symbols-outlined text-lg">download</span>
+          {{ texts[currentLang].download }}
         </button>
-      </div>
 
+      </div>
+      
+      <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-900 via-blue-500 to-blue-900 opacity-30"></div>
     </section>
   </main>
 </template>
+
+<style scoped>
+/* Un pequeño efecto de parpadeo suave para el texto de CV */
+p {
+  animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+</style>

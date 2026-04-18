@@ -1,14 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-// Recibimos el idioma del padre
-defineProps<{
+const props = defineProps<{
   currentLang: 'ES' | 'EN'
 }>();
 
 const scrollContainer = ref<HTMLElement | null>(null);
 
-// Diccionario de textos corregido y mejorado
 const texts = {
   ES: {
     title: 'Proyectos',
@@ -35,121 +33,142 @@ const texts = {
 const scroll = (direction: 'left' | 'right') => {
   const container = scrollContainer.value;
   if (!container) return;
-  const scrollAmount = 400;
-  container.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+  // Calculamos el ancho de una tarjeta para un scroll preciso
+  const cardWidth = container.querySelector('div')?.clientWidth || 400;
+  const gap = 32; // gap-8 = 32px
+  const scrollAmount = cardWidth + gap;
+  
+  container.scrollBy({ 
+    left: direction === 'left' ? -scrollAmount : scrollAmount, 
+    behavior: 'smooth' 
+  });
 };
 </script>
 
 <template>
-  <div class="bg-gray-200 min-h-screen p-4 md:p-16 font-sans border-t-8 border-yellow-500">
+  <div class="bg-slate-950 min-h-screen p-4 md:p-16 font-sans border-t-2 border-gray-800"">
     
     <header class="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-4 max-w-7xl mx-auto">
       <div>
-        <h1 class="text-4xl md:text-6xl font-black text-gray-900 tracking-tighter uppercase italic">
+        <h1 class="text-4xl md:text-6xl font-black text-white tracking-tighter uppercase italic">
           {{ texts[currentLang].title }} <span class="text-yellow-600">{{ texts[currentLang].subtitle }}</span>
         </h1>
-        <p class="text-gray-600 mt-2 font-mono font-bold">{{ texts[currentLang].desc }}</p>
+        <p class="text-gray-500 mt-2 font-mono text-sm">{{ texts[currentLang].desc }}</p>
       </div>
       
-      <div class="hidden md:flex items-center gap-4">
-        <button @click="scroll('left')" class="w-14 h-14 rounded-full border-4 border-gray-400 flex items-center justify-center text-gray-700 hover:bg-yellow-500 hover:border-yellow-600 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)] active:translate-y-1 active:shadow-none">
-          <span class="material-symbols-outlined font-bold">arrow_back</span>
+      <div class="hidden md:flex items-center gap-3">
+        <button 
+          @click="scroll('left')" 
+          aria-label="Scroll left"
+          class="w-12 h-12 rounded-full border-2 border-gray-300 flex items-center justify-center text-gray-600 hover:bg-gray-200 active:scale-90 transition-all"
+        >
+          <span class="material-symbols-outlined">arrow_back</span>
         </button>
-        <button @click="scroll('right')" class="w-14 h-14 rounded-full bg-yellow-500 border-4 border-yellow-600 flex items-center justify-center text-white hover:bg-yellow-400 transition shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)] active:translate-y-1 active:shadow-none">
-          <span class="material-symbols-outlined font-bold">arrow_forward</span>
+        <button 
+          @click="scroll('right')" 
+          aria-label="Scroll right"
+          class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-gray-700 active:scale-90 transition-all"
+        >
+          <span class="material-symbols-outlined">arrow_forward</span>
         </button>
       </div>
     </header>
 
-  <main 
-  ref="scrollContainer"
-  class="flex gap-12 overflow-x-auto snap-x snap-mandatory pb-12 no-scrollbar px-4 items-stretch"
->
-  <div class="min-w-[300px] md:min-w-[340px] snap-start mb-4 flex">
-    <div class="bg-[#f0d000] rounded-t-lg rounded-b-3xl p-4 shadow-[10px_10px_0px_0px_rgba(0,0,0,0.15)] border-t-2 border-l-2 border-white/30 relative overflow-hidden group flex flex-col w-full">
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-[#d4b800] rounded-b-xl border-x-2 border-b-2 border-black/10"></div>
+    <main 
+      ref="scrollContainer" 
+      class="flex gap-8 overflow-x-auto snap-x snap-mandatory pb-12 no-scrollbar px-2 items-stretch"
+    >
       
-      <div class="mt-8 bg-gray-300 p-1 border-4 border-black/20 rounded shadow-inner">
-        <div class="relative overflow-hidden aspect-square border-2 border-black/10">
-          <img src="/image.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-          <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-black/60"></div>
-          <img src="/Pokemon-Logo.png" class="absolute top-2 left-1/2 -translate-x-1/2 w-20 opacity-80" alt="logo">
+      <div class="min-w-[280px] md:min-w-[320px] snap-start flex">
+        <div class="bg-[#e8e0c8] rounded-2xl p-4 shadow-md border border-gray-300 relative overflow-hidden group flex flex-col w-full hover:shadow-xl transition-all duration-300">
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-4 bg-[#d4ccb0] rounded-b-lg"></div>
+          
+          <div class="mt-6 bg-gray-400/30 p-1 border-2 border-gray-400/40 rounded">
+            <div class="relative overflow-hidden aspect-square rounded-sm">
+              <img src="/image.png" alt="Rick and Morty Project" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/40"></div>
+            </div>
+          </div>
+
+          <div class="mt-4 px-1 flex flex-col flex-grow">
+            <h3 class="text-lg font-black text-gray-800 uppercase italic">Rick & Morty</h3>
+            <p class="text-[10px] font-bold text-gray-600 mt-2 h-14 line-clamp-4 uppercase leading-tight tracking-wide">
+              {{ texts[currentLang].rickDesc }}
+            </p>
+            <a 
+              href="https://martincarmna.github.io/Rick-and-Morty/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-auto block w-full text-center py-2 bg-gray-800 text-white font-black text-xs rounded hover:bg-black transition-colors"
+            >
+              {{ texts[currentLang].view }}
+            </a>
+          </div>
+          <p class="absolute right-0 top-1/2 -rotate-90 text-[7px] font-bold text-gray-400 translate-x-3 italic tracking-widest pointer-events-none">MODEL: CGB-001</p>
         </div>
       </div>
 
-      <div class="mt-4 px-2 flex flex-col flex-grow">
-        <h3 class="text-xl font-black text-blue-900 uppercase italic leading-none h-6">Rick & Morty</h3>
-        <p class="text-[10px] font-bold text-gray-800 mt-2 h-16 line-clamp-4 uppercase leading-tight">
-          {{ texts[currentLang].rickDesc }}
-        </p>
-        
-        <a href="https://martincarmna.github.io/Rick-and-Morty/" target="_blank" 
-           class="mt-auto block w-full text-center py-2 bg-gray-800 text-yellow-400 font-black text-xs rounded hover:bg-black transition-colors border-b-4 border-black/50">
-          {{ texts[currentLang].view }}
-        </a>
-      </div>
-      <p class="absolute right-0 top-1/2 -rotate-90 text-[8px] font-bold text-black/30 translate-x-3 italic">THIS SIDE OUT</p>
-    </div>
-  </div>
+      <div class="min-w-[280px] md:min-w-[320px] snap-start flex">
+        <div class="bg-[#e8e0c8] rounded-2xl p-4 shadow-md border border-gray-300 relative overflow-hidden group flex flex-col w-full hover:shadow-xl transition-all duration-300">
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-4 bg-[#d4ccb0] rounded-b-lg"></div>
+          
+          <div class="mt-6 bg-gray-400/30 p-1 border-2 border-gray-400/40 rounded">
+            <div class="relative overflow-hidden aspect-square rounded-sm">
+              <img src="/myst.png" alt="SMyT Project" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+              <div class="absolute inset-0 bg-gradient-to-b from-transparent to-red-900/40"></div>
+              <div class="absolute top-2 right-2 bg-red-600 text-white text-[7px] px-2 py-0.5 font-bold rounded-sm">GOV PROJECT</div>
+            </div>
+          </div>
 
-  <div class="min-w-[300px] md:min-w-[340px] snap-start mb-4 flex">
-    <div class="bg-[#f0d000] rounded-t-lg rounded-b-3xl p-4 shadow-[10px_10px_0px_0px_rgba(0,0,0,0.15)] border-t-2 border-l-2 border-white/30 relative overflow-hidden group flex flex-col w-full">
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-[#d4b800] rounded-b-xl border-x-2 border-b-2 border-black/10"></div>
-      
-      <div class="mt-8 bg-gray-300 p-1 border-4 border-black/20 rounded shadow-inner">
-        <div class="relative overflow-hidden aspect-square border-2 border-black/10">
-          <img src="/myst.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-          <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-red-900/60"></div>
-          <div class="absolute top-2 right-2 bg-red-600 text-white text-[8px] px-2 py-1 font-bold rounded italic">TEAM</div>
+          <div class="mt-4 px-1 flex flex-col flex-grow">
+            <h3 class="text-lg font-black text-gray-800 uppercase italic">SMyT Depósitos</h3>
+            <p class="text-[10px] font-bold text-gray-600 mt-2 h-14 line-clamp-4 uppercase leading-tight tracking-wide">
+              {{ texts[currentLang].smytDesc }}
+            </p>
+            <a 
+              href="https://smytdepositos.netlify.app/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-auto block w-full text-center py-2 bg-red-700 text-white font-black text-xs rounded hover:bg-red-800 transition-colors"
+            >
+              {{ texts[currentLang].view }}
+            </a>
+          </div>
+          <p class="absolute right-0 top-1/2 -rotate-90 text-[7px] font-bold text-gray-400 translate-x-3 italic tracking-widest pointer-events-none">DMG-APSE-USA</p>
         </div>
       </div>
 
-      <div class="mt-4 px-2 flex flex-col flex-grow">
-        <h3 class="text-xl font-black text-red-800 uppercase italic leading-none h-6">SMyT Depósitos</h3>
-        <p class="text-[10px] font-bold text-gray-800 mt-2 h-16 line-clamp-4 uppercase leading-tight">
-          {{ texts[currentLang].smytDesc }}
-        </p>
-        
-        <a href="https://smytdepositos.netlify.app/" target="_blank" 
-           class="mt-auto block w-full text-center py-2 bg-red-700 text-white font-black text-xs rounded hover:bg-red-800 transition-colors border-b-4 border-black/50">
-          {{ texts[currentLang].view }}
-        </a>
-      </div>
-      <p class="absolute right-0 top-1/2 -rotate-90 text-[8px] font-bold text-black/30 translate-x-3 italic tracking-widest">DMG-APSE-USA</p>
-    </div>
-  </div>
+      <div class="min-w-[280px] md:min-w-[320px] snap-start flex">
+        <div class="bg-[#e8e0c8] rounded-2xl p-4 shadow-md border border-gray-300 relative overflow-hidden group flex flex-col w-full opacity-80 hover:opacity-100 transition-all">
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-4 bg-[#d4ccb0] rounded-b-lg"></div>
+          
+          <div class="mt-6 bg-gray-400/30 p-1 border-2 border-gray-400/40 rounded">
+            <div class="relative overflow-hidden aspect-square rounded-sm">
+              <img src="/ferret.jpeg" alt="Ferretería Project" class="w-full h-full object-cover grayscale opacity-50">
+              <div class="absolute inset-0 bg-black/60 flex items-center justify-center">
+                <span class="text-white font-black text-lg italic -rotate-12 border-2 border-white px-2 py-1">{{ texts[currentLang].comingSoon }}</span>
+              </div>
+            </div>
+          </div>
 
-  <div class="min-w-[300px] md:min-w-[340px] snap-start mb-4 flex">
-    <div class="bg-[#f0d000] rounded-t-lg rounded-b-3xl p-4 shadow-[10px_10px_0px_0px_rgba(0,0,0,0.15)] border-t-2 border-l-2 border-white/30 relative overflow-hidden group grayscale-[0.5] hover:grayscale-0 transition-all flex flex-col w-full">
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-[#d4b800] rounded-b-xl border-x-2 border-b-2 border-black/10"></div>
-      
-      <div class="mt-8 bg-gray-300 p-1 border-4 border-black/20 rounded shadow-inner">
-        <div class="relative overflow-hidden aspect-square border-2 border-black/10">
-          <img src="/ferret.jpeg" class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-             <span class="text-white font-black text-xl italic drop-shadow-lg -rotate-12">{{ texts[currentLang].comingSoon }}</span>
+          <div class="mt-4 px-1 flex flex-col flex-grow">
+            <h3 class="text-lg font-black text-gray-500 uppercase italic">Ferretería J.</h3>
+            <p class="text-[10px] font-bold text-gray-500 mt-2 h-14 line-clamp-4 uppercase leading-tight tracking-wide">
+              {{ texts[currentLang].ferreDesc }}
+            </p>
+            <button disabled class="mt-auto block w-full text-center py-2 bg-gray-300 text-gray-500 font-black text-xs rounded cursor-not-allowed uppercase">
+              {{ currentLang === 'ES' ? 'BLOQUEADO' : 'LOCKED' }}
+            </button>
           </div>
         </div>
       </div>
 
-      <div class="mt-4 px-2 flex flex-col flex-grow">
-        <h3 class="text-xl font-black text-gray-700 uppercase italic leading-none h-6">Ferretería J.</h3>
-        <p class="text-[10px] font-bold text-gray-800 mt-2 h-16 line-clamp-4 uppercase leading-tight">
-          {{ texts[currentLang].ferreDesc }}
-        </p>
-        
-        <button disabled class="mt-auto block w-full text-center py-2 bg-gray-400 text-white font-black text-xs rounded border-b-4 border-gray-600 cursor-not-allowed uppercase">
-          Locked
-        </button>
-      </div>
-    </div>
-  </div>
-</main>
+    </main>
 
     <div class="flex justify-center md:hidden gap-2 mt-4">
-        <div class="w-8 h-2 bg-yellow-500 rounded-full animate-pulse"></div>
-        <div class="w-2 h-2 bg-gray-400 rounded-full"></div>
-        <div class="w-2 h-2 bg-gray-400 rounded-full"></div>
+      <div class="w-6 h-1.5 bg-gray-700 rounded-full transition-all"></div>
+      <div class="w-1.5 h-1.5 bg-gray-300 rounded-full transition-all"></div>
+      <div class="w-1.5 h-1.5 bg-gray-300 rounded-full transition-all"></div>
     </div>
   </div>
 </template>
@@ -163,7 +182,11 @@ const scroll = (direction: 'left' | 'right') => {
   scrollbar-width: none;
 }
 
+/* Efecto sutil de inclinación */
+.group {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 .group:hover {
-  transform: perspective(1000px) rotateX(2deg);
+  transform: perspective(1000px) rotateX(4deg) translateY(-5px);
 }
 </style>

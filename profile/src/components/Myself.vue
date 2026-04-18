@@ -10,13 +10,10 @@ const texts = {
     pokedexEntry: 'Entrada Pokédex: No. 001 - Marty',
     title: 'INFO DESARROLLADOR',
     role: 'Desarrolador de Software Multiplataforma Full-stack',
-    description: `Soy un desarrollador de software multiplataforma con un fuerte interés en crear soluciones completas y bien estructuradas. Considero la programación no solo como una disciplina técnica, sino como un proceso que combina lógica, creatividad y atención al detalle.
-
-Cuento con experiencia en el desarrollo full-stack, participando tanto en la construcción de interfaces como en la implementación de la lógica de negocio y la gestión de datos. Esto me permite abordar proyectos de manera integral, asegurando que cada componente funcione de forma eficiente dentro del sistema.
-
-Me interesa trabajar en entornos donde pueda desarrollar aplicaciones multiplataforma, integrando distintas tecnologías para ofrecer soluciones funcionales, escalables y mantenibles.
-
-Además, mantengo un interés constante por el aprendizaje y la mejora continua, lo que me permite adaptarme a nuevas herramientas, metodologías y retos dentro del desarrollo de software.`,
+    description: `Desarrollador Full-Stack con experiencia construyendo aplicaciones 
+completas, desde la interfaz hasta la lógica de negocio y base de datos. 
+Me apasiona crear soluciones funcionales, escalables y bien estructuradas, 
+combinando lógica, creatividad y atención al detalle.`,
     statsTitle: 'Habilidades Base',
     toolsTitle: 'Herramientas de Combate'
   },
@@ -24,13 +21,9 @@ Además, mantengo un interés constante por el aprendizaje y la mejora continua,
     pokedexEntry: 'Pokédex Entry: No. 001 - Marty',
     title: 'DEVELOPER INFO',
     role: 'Full-Stack Multiplatform Software Developer',
-    description: `I am a multiplatform software developer with a strong interest in building complete and well-structured solutions. I view programming not only as a technical discipline, but as a process that combines logic, creativity, and attention to detail.
-
-I have experience in full-stack development, contributing to both interface design and the implementation of business logic and data management. This allows me to approach projects holistically, ensuring that each component operates efficiently within the system.
-
-I am interested in working in environments where I can develop multiplatform applications, integrating different technologies to deliver functional, scalable, and maintainable solutions.
-
-Additionally, I maintain a strong commitment to continuous learning and improvement, which enables me to adapt to new tools, methodologies, and challenges within software development.`,
+    description: `Full-Stack Developer with experience building complete 
+    applications, from the interface to the business logic and database. I am passionate about creating functional, 
+    scalable, and well-structured solutions, combining logic, creativity, and attention to detail.`,
     statsTitle: 'Base Stats',
     toolsTitle: 'Combat Tools'
   }
@@ -47,73 +40,74 @@ const logos = {
 </script>
 
 <template>
-  <div class="bg-[url('/pokedex_kalos_bg.png')] bg-cover bg-center min-h-screen p-4 md:p-8 font-mono border-t-4 border-blue-900">
-    
-    <div class="bg-black/70 border-2 border-blue-400 p-3 mb-8 rounded-t-lg max-w-6xl mx-auto flex justify-between items-center shadow-[0_0_15px_rgba(0,163,255,0.5)]">
-      <h2 class="text-blue-300 text-sm md:text-base tracking-widest uppercase animate-pulse">
+  <div class="bg-gray-950 min-h-screen p-4 md:p-8 font-mono border-t border-gray-800">
+
+    <!-- Barra Pokédex sin glow agresivo -->
+    <div class="bg-gray-900 border border-gray-700 p-3 mb-8 rounded-lg max-w-6xl mx-auto flex justify-between items-center">
+      <h2 class="text-blue-400 text-sm tracking-widest uppercase">
         {{ texts[currentLang].pokedexEntry }}
       </h2>
       <div class="flex gap-2">
-        <div class="w-3 h-3 bg-red-600 rounded-full border border-red-900 shadow-[0_0_5px_rgba(255,0,0,0.8)]"></div>
-        <div class="w-3 h-3 bg-yellow-500 rounded-full border border-yellow-800 shadow-[0_0_5px_rgba(255,255,0,0.8)]"></div>
-        <div class="w-3 h-3 bg-green-600 rounded-full border border-green-900 shadow-[0_0_5px_rgba(0,255,0,0.8)]"></div>
+        <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+        <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
+        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
       </div>
     </div>
 
-    <h1 class="text-4xl md:text-5xl font-extrabold mb-10 text-center text-white tracking-tighter drop-shadow-[0_2px_2px_rgba(0,163,255,0.8)] uppercase">
+    <!-- Título sin drop-shadow neon -->
+    <h1 class="text-3xl md:text-4xl font-extrabold mb-10 text-center text-white tracking-tighter uppercase">
       {{ texts[currentLang].title }}
     </h1>
 
-    <main class="flex flex-wrap lg:flex-nowrap gap-8 max-w-6xl mx-auto">
-      
-      <div class="bg-black/60 border-2 border-blue-500 shadow-[0_0_20px_rgba(0,163,255,0.3)] rounded-xl p-6 md:p-8 flex-1 transform transition-all hover:border-blue-300 hover:shadow-[0_0_30px_rgba(0,163,255,0.6)]">
-        <div class="flex flex-col sm:flex-row items-center gap-6 mb-6 bg-blue-950/40 p-5 rounded-lg border border-blue-700">
-          <img src="/perfil.jpg" class="w-28 h-28 rounded-full object-cover border-4 border-blue-400 shadow-[0_0_10px_rgba(0,163,255,0.7)]" alt="Avatar">
+    <main class="flex flex-wrap lg:flex-nowrap gap-6 max-w-6xl mx-auto">
+
+      <!-- Card info -->
+      <div class="bg-gray-900 border border-gray-700 rounded-xl p-6 md:p-8 flex-1 hover:border-gray-500 transition-colors">
+        
+        <div class="flex flex-col sm:flex-row items-center gap-6 mb-6 bg-gray-800 p-5 rounded-lg border border-gray-700">
+          <img src="/perfil.jpg" class="w-24 h-24 rounded-full object-cover border-2 border-blue-400" alt="Avatar">
           <div class="text-center sm:text-left">
-            <h3 class="text-2xl font-bold text-white tracking-tight">Jose Martin Carmona Palestina</h3>
-            <h4 class="text-blue-300 font-medium text-lg mt-1">{{ texts[currentLang].role }}</h4>
+            <h3 class="text-xl font-bold text-white tracking-tight">Jose Martin Carmona Palestina</h3>
+            <h4 class="text-blue-400 text-sm mt-1">{{ texts[currentLang].role }}</h4>
           </div>
         </div>
-        
-        <div class="text-gray-200 leading-relaxed text-base bg-black/40 p-5 rounded-lg border border-gray-700 space-y-3">
+
+        <div class="text-gray-300 leading-relaxed text-sm bg-gray-800/50 p-5 rounded-lg border border-gray-700">
           <p>{{ texts[currentLang].description }}</p>
         </div>
       </div>
 
-      <div class="bg-black/70 border-2 border-blue-500 p-8 rounded-xl w-full lg:w-1/3 shadow-[0_0_20px_rgba(0,163,255,0.3)] transform transition-all hover:border-blue-300 hover:shadow-[0_0_30px_rgba(0,163,255,0.6)]">
-        <h2 class="text-2xl font-bold mb-6 text-white text-center border-b-2 border-blue-500 pb-3 uppercase tracking-wider">
+      <!-- Card herramientas -->
+      <div class="bg-gray-900 border border-gray-700 p-6 rounded-xl w-full lg:w-1/3 hover:border-gray-500 transition-colors">
+        <h2 class="text-lg font-bold mb-6 text-white text-center border-b border-gray-700 pb-3 uppercase tracking-wider">
           {{ texts[currentLang].toolsTitle }}
         </h2>
-        
-        <div class="space-y-5">
-          <section class="flex items-center gap-4 bg-blue-950/50 p-4 rounded-lg border border-blue-700 hover:bg-blue-900/60 transition-colors shadow-inner group">
-            <img :src="logos.vue" alt="Vue" class="w-10 h-10 transition-transform group-hover:scale-110">
-            <p class="font-bold text-xl text-white">Vue.js</p>
-          </section>
-          
-          <section class="flex items-center gap-4 bg-blue-950/50 p-4 rounded-lg border border-blue-700 hover:bg-blue-900/60 transition-colors shadow-inner group">
-            <img :src="logos.django" alt="Django" class="w-10 h-10 transition-transform group-hover:scale-110">
-            <p class="font-bold text-xl text-white">Django & DRF</p>
-          </section>
 
-          <section class="bg-blue-950/50 p-4 rounded-lg border border-blue-700 hover:bg-blue-900/60 transition-colors shadow-inner">
-            <div class="flex items-center gap-4 mb-4">
-               <p class="font-bold text-xl text-white">Databases</p>
+        <div class="space-y-3">
+          <div class="flex items-center gap-4 bg-gray-800 p-4 rounded-lg border border-gray-700 hover:border-gray-500 transition-colors group">
+            <img :src="logos.vue" alt="Vue" class="w-8 h-8 group-hover:scale-110 transition-transform">
+            <p class="font-bold text-white">Vue.js</p>
+          </div>
+
+<div class="flex items-center gap-4 bg-gray-900/50 p-4 rounded-lg border border-gray-800 hover:border-blue-500/50 transition-all group backdrop-blur-sm">
+  <img :src="logos.django" 
+       alt="Django" 
+       class="w-8 h-8 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all brightness-0 invert">
+  <p class="font-bold text-white group-hover:text-blue-400 transition-colors">Django & DRF</p>
+</div>
+
+          <div class="bg-gray-800 p-4 rounded-lg border border-gray-700">
+            <p class="font-bold text-white mb-3">Databases</p>
+            <div class="flex gap-4 justify-around bg-gray-900 p-3 rounded border border-gray-700">
+              <img :src="logos.mysql" title="MySQL" class="w-8 h-8 opacity-70 hover:opacity-100 hover:scale-110 transition-all">
+              <img :src="logos.postgresql" title="PostgreSQL" class="w-8 h-8 opacity-70 hover:opacity-100 hover:scale-110 transition-all">
+              <img :src="logos.mongodb" title="MongoDB" class="w-8 h-8 opacity-70 hover:opacity-100 hover:scale-110 transition-all">
             </div>
-            <div class="flex gap-5 justify-around bg-black/40 p-3 rounded border border-gray-700">
-              <img :src="logos.mysql" title="MySQL" class="w-9 h-9 opacity-90 hover:opacity-100 hover:scale-110 transition-transform">
-              <img :src="logos.postgresql" title="PostgreSQL" class="w-9 h-9 opacity-90 hover:opacity-100 hover:scale-110 transition-transform">
-              <img :src="logos.mongodb" title="MongoDB" class="w-9 h-9 opacity-90 hover:opacity-100 hover:scale-110 transition-transform">
-            </div>
-          </section>
+          </div>
         </div>
       </div>
-    </main>
 
-    <div class="flex justify-center mt-12 relative">
-      <div class="absolute inset-0 bg-blue-500/20 blur-xl rounded-full transform scale-150"></div>
-      <img src="/team.png" alt="equipo" class="w-72 h-auto opacity-90 hover:opacity-100 transition transform hover:scale-110 relative z-10 drop-shadow-[0_0_10px_rgba(0,163,255,0.8)]">
-    </div>
+    </main>
   </div>
 </template>
 
