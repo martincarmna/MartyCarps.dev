@@ -78,34 +78,55 @@ const logos = {
       </div>
 
       <!-- Card herramientas -->
-      <div class="bg-gray-900 border border-gray-700 p-6 rounded-xl w-full lg:w-1/3 hover:border-gray-500 transition-colors">
-        <h2 class="text-lg font-bold mb-6 text-white text-center border-b border-gray-700 pb-3 uppercase tracking-wider">
-          {{ texts[currentLang].toolsTitle }}
-        </h2>
+<div class="bg-gray-950 border border-gray-900 p-8 rounded-sm w-full lg:w-1/3 hover:border-gray-800 transition-all duration-500 shadow-2xl">
+  <h2 class="text-[10px] font-black mb-8 text-gray-500 text-center border-b border-gray-900 pb-4 uppercase tracking-[0.4em]">
+    {{ texts[currentLang].toolsTitle }}
+  </h2>
 
-        <div class="space-y-3">
-          <div class="flex items-center gap-4 bg-gray-800 p-4 rounded-lg border border-gray-700 hover:border-gray-500 transition-colors group">
-            <img :src="logos.vue" alt="Vue" class="w-8 h-8 group-hover:scale-110 transition-transform">
-            <p class="font-bold text-white">Vue.js</p>
-          </div>
+  <div class="space-y-4">
+    <div class="flex items-center gap-4 bg-gray-900/40 p-4 rounded-sm border border-gray-800 hover:border-emerald-500/50 transition-all group backdrop-blur-sm">
+      <img :src="logos.vue" alt="Vue" class="w-7 h-7 group-hover:drop-shadow-[0_0_8px_rgba(16,185,129,0.5)] transition-all duration-300">
+      <p class="font-black text-[11px] text-white uppercase tracking-widest group-hover:text-emerald-400">Vue.js</p>
+    </div>
 
-<div class="flex items-center gap-4 bg-gray-900/50 p-4 rounded-lg border border-gray-800 hover:border-blue-500/50 transition-all group backdrop-blur-sm">
-  <img :src="logos.django" 
-       alt="Django" 
-       class="w-8 h-8 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all brightness-0 invert">
-  <p class="font-bold text-white group-hover:text-blue-400 transition-colors">Django & DRF</p>
-</div>
+    <div class="flex items-center gap-4 bg-gray-900/40 p-4 rounded-sm border border-gray-800 hover:border-blue-500/50 transition-all group backdrop-blur-sm">
+      <img :src="logos.django" 
+           alt="Django" 
+           class="w-7 h-7 brightness-0 invert opacity-90 group-hover:opacity-100 group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] transition-all">
+      <p class="font-black text-[11px] text-white uppercase tracking-widest group-hover:text-blue-400">Django & DRF</p>
+    </div>
 
-          <div class="bg-gray-800 p-4 rounded-lg border border-gray-700">
-            <p class="font-bold text-white mb-3">Databases</p>
-            <div class="flex gap-4 justify-around bg-gray-900 p-3 rounded border border-gray-700">
-              <img :src="logos.mysql" title="MySQL" class="w-8 h-8 opacity-70 hover:opacity-100 hover:scale-110 transition-all">
-              <img :src="logos.postgresql" title="PostgreSQL" class="w-8 h-8 opacity-70 hover:opacity-100 hover:scale-110 transition-all">
-              <img :src="logos.mongodb" title="MongoDB" class="w-8 h-8 opacity-70 hover:opacity-100 hover:scale-110 transition-all">
-            </div>
-          </div>
-        </div>
+<div class="bg-gray-900/40 p-5 rounded-sm border border-gray-800 space-y-4">
+  <p class="font-black text-[10px] text-gray-600 uppercase tracking-[0.3em]">Databases</p>
+  
+  <div class="flex gap-6 justify-center bg-black/60 py-6 rounded-sm border border-gray-900">
+    <div class="group relative flex flex-col items-center">
+      <div class="bg-white/5 p-2 rounded-lg group-hover:bg-white/10 transition-colors">
+        <img :src="logos.mysql" title="MySQL" 
+             class="w-8 h-8 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">
       </div>
+      <span class="absolute -bottom-6 text-[8px] font-black text-gray-500 opacity-0 group-hover:opacity-100 transition-all uppercase tracking-tighter">MySQL</span>
+    </div>
+
+    <div class="group relative flex flex-col items-center">
+      <div class="bg-white/5 p-2 rounded-lg group-hover:bg-white/10 transition-colors">
+        <img :src="logos.postgresql" title="PostgreSQL" 
+             class="w-8 h-8 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">
+      </div>
+      <span class="absolute -bottom-6 text-[8px] font-black text-gray-500 opacity-0 group-hover:opacity-100 transition-all uppercase tracking-tighter">Postgres</span>
+    </div>
+
+    <div class="group relative flex flex-col items-center">
+      <div class="bg-white/5 p-2 rounded-lg group-hover:bg-white/10 transition-colors">
+        <img :src="logos.mongodb" title="MongoDB" 
+             class="w-8 h-8 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">
+      </div>
+      <span class="absolute -bottom-6 text-[8px] font-black text-gray-500 opacity-0 group-hover:opacity-100 transition-all uppercase tracking-tighter">MongoDB</span>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
 
     </main>
   </div>

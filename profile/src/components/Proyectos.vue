@@ -17,6 +17,7 @@ const texts = {
     rickDesc: 'Explorador de personajes dinámico que consume la API oficial de Rick & Morty.',
     smytDesc: 'Desarrollo colaborativo de un sistema integral para depósitos vehiculares, optimizando la gestión y previniendo el robo de autopartes.',
     ferreDesc: 'Sistema de gestión de inventarios y punto de venta (POS) diseñado para optimizar el control financiero y flujo de stock.',
+    ssacDesc: 'Sistema de Solicitud y Atención Ciudadana desarrollado localmente como propuesta para un ayuntamiento. Se mantiene como un prototipo funcional no implementado.'
   },
   EN: {
     title: 'Projects',
@@ -27,15 +28,15 @@ const texts = {
     rickDesc: 'Dynamic character explorer leveraging the official Rick & Morty API.',
     smytDesc: 'Team-based development of a full-scale vehicle impound system, designed to streamline management and prevent auto-part theft.',
     ferreDesc: 'Inventory and Sales (POS) system for local businesses, focused on optimizing financial tracking and stock management.',
+    ssacDesc: 'Citizen Request and Attention System developed locally as a town hall proposal. It remains a functional, non-implemented prototype.'
   }
 };
 
 const scroll = (direction: 'left' | 'right') => {
   const container = scrollContainer.value;
   if (!container) return;
-  // Calculamos el ancho de una tarjeta para un scroll preciso
   const cardWidth = container.querySelector('div')?.clientWidth || 400;
-  const gap = 32; // gap-8 = 32px
+  const gap = 32; 
   const scrollAmount = cardWidth + gap;
   
   container.scrollBy({ 
@@ -46,7 +47,7 @@ const scroll = (direction: 'left' | 'right') => {
 </script>
 
 <template>
-  <div class="bg-slate-950 min-h-screen p-4 md:p-16 font-sans border-t-2 border-gray-800"">
+  <div class="bg-slate-950 min-h-screen p-4 md:p-16 font-sans border-t-2 border-gray-800">
     
     <header class="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-4 max-w-7xl mx-auto">
       <div>
@@ -82,94 +83,92 @@ const scroll = (direction: 'left' | 'right') => {
       <div class="min-w-[280px] md:min-w-[320px] snap-start flex">
         <div class="bg-[#e8e0c8] rounded-2xl p-4 shadow-md border border-gray-300 relative overflow-hidden group flex flex-col w-full hover:shadow-xl transition-all duration-300">
           <div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-4 bg-[#d4ccb0] rounded-b-lg"></div>
-          
           <div class="mt-6 bg-gray-400/30 p-1 border-2 border-gray-400/40 rounded">
             <div class="relative overflow-hidden aspect-square rounded-sm">
               <img src="/image.png" alt="Rick and Morty Project" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
               <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/40"></div>
             </div>
           </div>
-
           <div class="mt-4 px-1 flex flex-col flex-grow">
             <h3 class="text-lg font-black text-gray-800 uppercase italic">Rick & Morty</h3>
             <p class="text-[10px] font-bold text-gray-600 mt-2 h-14 line-clamp-4 uppercase leading-tight tracking-wide">
               {{ texts[currentLang].rickDesc }}
             </p>
-            <a 
-              href="https://martincarmna.github.io/Rick-and-Morty/" 
-              target="_blank"
-              rel="noopener noreferrer"
-              class="mt-auto block w-full text-center py-2 bg-gray-800 text-white font-black text-xs rounded hover:bg-black transition-colors"
-            >
+            <a href="https://martincarmna.github.io/Rick-and-Morty/" target="_blank" rel="noopener noreferrer" class="mt-auto block w-full text-center py-2 bg-gray-800 text-white font-black text-xs rounded hover:bg-black transition-colors">
               {{ texts[currentLang].view }}
             </a>
           </div>
-          <p class="absolute right-0 top-1/2 -rotate-90 text-[7px] font-bold text-gray-400 translate-x-3 italic tracking-widest pointer-events-none">MODEL: CGB-001</p>
         </div>
       </div>
 
       <div class="min-w-[280px] md:min-w-[320px] snap-start flex">
         <div class="bg-[#e8e0c8] rounded-2xl p-4 shadow-md border border-gray-300 relative overflow-hidden group flex flex-col w-full hover:shadow-xl transition-all duration-300">
           <div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-4 bg-[#d4ccb0] rounded-b-lg"></div>
-          
           <div class="mt-6 bg-gray-400/30 p-1 border-2 border-gray-400/40 rounded">
             <div class="relative overflow-hidden aspect-square rounded-sm">
               <img src="/myst.png" alt="SMyT Project" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-              <div class="absolute inset-0 bg-gradient-to-b from-transparent to-red-900/40"></div>
-              <div class="absolute top-2 right-2 bg-red-600 text-white text-[7px] px-2 py-0.5 font-bold rounded-sm">GOV PROJECT</div>
+              <div class="absolute top-2 right-2 bg-red-600 text-white text-[7px] px-2 py-0.5 font-bold rounded-sm uppercase">Gobierno</div>
             </div>
           </div>
-
           <div class="mt-4 px-1 flex flex-col flex-grow">
             <h3 class="text-lg font-black text-gray-800 uppercase italic">SMyT Depósitos</h3>
             <p class="text-[10px] font-bold text-gray-600 mt-2 h-14 line-clamp-4 uppercase leading-tight tracking-wide">
               {{ texts[currentLang].smytDesc }}
             </p>
-            <a 
-              href="https://smytdepositos.netlify.app/" 
-              target="_blank"
-              rel="noopener noreferrer"
-              class="mt-auto block w-full text-center py-2 bg-red-700 text-white font-black text-xs rounded hover:bg-red-800 transition-colors"
-            >
+            <a href="https://smytdepositos.netlify.app/" target="_blank" rel="noopener noreferrer" class="mt-auto block w-full text-center py-2 bg-red-700 text-white font-black text-xs rounded hover:bg-red-800 transition-colors">
               {{ texts[currentLang].view }}
             </a>
           </div>
-          <p class="absolute right-0 top-1/2 -rotate-90 text-[7px] font-bold text-gray-400 translate-x-3 italic tracking-widest pointer-events-none">DMG-APSE-USA</p>
         </div>
       </div>
 
       <div class="min-w-[280px] md:min-w-[320px] snap-start flex">
         <div class="bg-[#e8e0c8] rounded-2xl p-4 shadow-md border border-gray-300 relative overflow-hidden group flex flex-col w-full opacity-80 hover:opacity-100 transition-all">
           <div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-4 bg-[#d4ccb0] rounded-b-lg"></div>
-          
           <div class="mt-6 bg-gray-400/30 p-1 border-2 border-gray-400/40 rounded">
             <div class="relative overflow-hidden aspect-square rounded-sm">
               <img src="/ferret.jpeg" alt="Ferretería Project" class="w-full h-full object-cover grayscale opacity-50">
               <div class="absolute inset-0 bg-black/60 flex items-center justify-center">
-                <span class="text-white font-black text-lg italic -rotate-12 border-2 border-white px-2 py-1">{{ texts[currentLang].comingSoon }}</span>
+                <span class="text-white font-black text-lg italic -rotate-12 border-2 border-white px-2 py-1 tracking-tighter">{{ texts[currentLang].comingSoon }}</span>
               </div>
             </div>
           </div>
-
           <div class="mt-4 px-1 flex flex-col flex-grow">
             <h3 class="text-lg font-black text-gray-500 uppercase italic">Ferretería J.</h3>
             <p class="text-[10px] font-bold text-gray-500 mt-2 h-14 line-clamp-4 uppercase leading-tight tracking-wide">
               {{ texts[currentLang].ferreDesc }}
             </p>
-            <button disabled class="mt-auto block w-full text-center py-2 bg-gray-300 text-gray-500 font-black text-xs rounded cursor-not-allowed uppercase">
+            <button disabled class="mt-auto block w-full text-center py-2 bg-gray-300 text-gray-500 font-black text-xs rounded cursor-not-allowed uppercase tracking-widest">
               {{ currentLang === 'ES' ? 'BLOQUEADO' : 'LOCKED' }}
             </button>
           </div>
         </div>
       </div>
 
-    </main>
+      <div class="min-w-[280px] md:min-w-[320px] snap-start flex">
+        <div class="bg-[#e8e0c8] rounded-2xl p-4 shadow-md border border-gray-300 relative group flex flex-col w-full opacity-80 hover:opacity-100 transition-all">
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-4 bg-[#d4ccb0] rounded-b-lg"></div>
+          <div class="mt-6 bg-gray-400/30 p-1 border-2 border-gray-400/40 rounded">
+            <div class="relative overflow-hidden aspect-square rounded-sm">
+              <img src="/ssac.png" alt="SSAC Project" class="w-full h-full object-cover grayscale opacity-50 bg-white">
+              <div class="absolute inset-0 bg-black/40 flex items-center justify-center text-center px-4">
+                 <span class="text-white font-black text-[10px] uppercase border border-white px-2 py-1">{{ currentLang === 'ES' ? 'PROYECTO LOCAL' : 'LOCAL PROJECT' }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4 px-1 flex flex-col flex-grow">
+            <h3 class="text-lg font-black text-gray-500 uppercase italic">SSAC</h3>
+            <p class="text-[10px] font-bold text-gray-500 mt-2 h-14 line-clamp-4 uppercase leading-tight tracking-wide italic">
+              {{ texts[currentLang].ssacDesc }}
+            </p>
+            <button disabled class="mt-auto block w-full text-center py-2 bg-gray-300 text-gray-500 font-black text-xs rounded cursor-not-allowed uppercase tracking-widest">
+              {{ currentLang === 'ES' ? 'ESTADO: PROPUESTA' : 'STATUS: PROPOSAL' }}
+            </button>
+          </div>
+        </div>
+      </div>
 
-    <div class="flex justify-center md:hidden gap-2 mt-4">
-      <div class="w-6 h-1.5 bg-gray-700 rounded-full transition-all"></div>
-      <div class="w-1.5 h-1.5 bg-gray-300 rounded-full transition-all"></div>
-      <div class="w-1.5 h-1.5 bg-gray-300 rounded-full transition-all"></div>
-    </div>
+    </main>
   </div>
 </template>
 
@@ -182,7 +181,6 @@ const scroll = (direction: 'left' | 'right') => {
   scrollbar-width: none;
 }
 
-/* Efecto sutil de inclinación */
 .group {
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
